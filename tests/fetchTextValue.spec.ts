@@ -1,4 +1,4 @@
-import { test, Page, chromium, Browser } from '@playwright/test';
+import { test, Page, chromium, Browser,expect } from '@playwright/test';
 
 test('fetch text value test', async ({ page }) => {
     await page.goto('https://naveenautomationlabs.com/opencart/index.php?route=account/register');
@@ -13,3 +13,4 @@ test('fetch text value test', async ({ page }) => {
      innerText = visible
      textContent = full DOM
      inputValue = input ka data */
+
