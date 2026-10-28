@@ -1,10 +1,11 @@
 import { Page,test,Browser,chromium, FrameLocator, Frame } from "@playwright/test";
+import { CLIENT_RENEG_LIMIT } from "node:tls";
 
 test('Iframe element test', async({page})=>{
 await page.goto('https://www.formsite.com/templates/registration-form-templates/vehicle-registration-form/');
-//await page.getByRole('img',{name:'Vehicle-Registration-Forms-and-Examples'}).click();
 await page.getByTitle('Vehicle-Registration-Forms-and-Examples').highlight();
 await page.getByTitle('Vehicle-Registration-Forms-and-Examples').click();//clicking image 
+//await page.getByRole('img',{name:'Vehicle-Registration-Forms-and-Examples'}).click();
 
 //iframe DOM
 let frameLocator:FrameLocator = page.frameLocator('#frame-one748593425');
@@ -19,6 +20,7 @@ await page.pause();
 
 })
 
+//print header text and footer text of frame
 test('frame test', async ({ page }) => {
    await page.goto('https://www.londonfreelance.org/courses/frames/index.html'); //web page
     
@@ -75,3 +77,30 @@ test('nested frames test', async ({ page }) => {
     //     .frameLocator('#iframe1')
     //     .getByRole('button', { name: 'Click Here' }).click();
 });
+
+
+
+
+
+//practices
+test('frame1 test', async ({ page }) => {
+   await page.goto('https://www.testmuai.com/selenium-playground/iframe-demo/'); //web page
+    const locator:FrameLocator =  page.frameLocator('#iFrame1');
+    let text= await locator.locator('.rsw-editor .rsw-ce').innerText();
+    console.log(text);
+    await page.pause();
+});
+
+test('total frames', async({page})=>{
+await page.goto('https://www.testmuai.com/selenium-playground/iframe-demo/');
+let allframe:Frame[] = page.frames();
+let count = allframe.length
+console.log('Total frame :', count);
+
+for(let e of allframe){
+    let frameUrl= e.url();
+    let framename= e.name();
+    console.log(framename ,":", frameUrl);
+}
+
+})
