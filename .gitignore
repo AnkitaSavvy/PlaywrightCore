@@ -1,6 +1,7 @@
 
 # Playwright updated from task 3
 node_modules/
+test
 /test-results/
 /playwright-report/
 /blob-report/
