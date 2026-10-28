@@ -1,6 +1,7 @@
 
-# Playwright updated from task 2
+# Playwright updated from sar1
 node_modules/
+test
 /test-results/
 /playwright-report/
 /blob-report/
