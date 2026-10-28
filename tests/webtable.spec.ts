@@ -1,5 +1,4 @@
-import { test, Page, chromium, Browser, expect } from '@playwright/test';
-
+import { test, chromium, Browser, expect } from '@playwright/test';
 
 test('webtable pagination with single selection test', async ({ page }) => {
 
